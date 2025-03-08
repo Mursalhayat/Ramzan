@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramzan Mubarak</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://i.imgur.com/8mH9xS3.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <div class="moon">
+            <div class="moon-glow"></div>
+            <i class="fas fa-moon"></i>
+            <div class="moon-crater moon-crater-1"></div>
+            <div class="moon-crater moon-crater-2"></div>
+            <div class="moon-crater moon-crater-3"></div>
+            <div class="moon-shine"></div>
+        </div>
+        
+        <div class="stars"></div>
+        
+        <div class="floating-lanterns">
+            <div class="floating-lantern lantern-1"></div>
+            <div class="floating-lantern lantern-2"></div>
+            <div class="floating-lantern lantern-3"></div>
+        </div>
+        
+        <div class="card">
+            <div class="header">
+                <h1>رمضان مبارك</h1>
+                <h2>Ramzan Mubarak</h2>
+                <div class="crescent-decoration">
+                    <div class="crescent-line"></div>
+                    <i class="fas fa-star"></i>
+                    <div class="crescent-line"></div>
+                </div>
+                <div class="language-toggle">
+                    <button id="lang-en" class="lang-btn active">English</button>
+                    <button id="lang-ur" class="lang-btn">اردو</button>
+                </div>
+            </div>
+            
+            <div class="message">
+                <p>May the divine blessings of Allah bring you hope, faith, and joy on the occasion of Ramzan. Wishing you and your family a blessed and peaceful Ramzan.</p>
+                <p class="quote">"Ramadan is the month whose beginning is mercy, whose middle is forgiveness and whose end is freedom from fire." - Prophet Muhammad (PBUH)</p>
+            </div>
+            
+            <div class="mosque-silhouette"></div>
+            
+            <div class="lanterns">
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+            </div>
+            
+            <!-- City Selector Section -->
+            <div class="city-selector-section">
+                <h3>Select Your City for Sehri & Iftar Times</h3>
+                <div class="city-selector-container">
+                    <div class="select-wrapper">
+                        <select id="country-select" class="custom-select">
+                            <option value="">Select Country</option>
+                            <!-- Countries will be populated by JavaScript -->
+                        </select>
+                        <div class="select-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="select-wrapper">
+                        <select id="city-select" class="custom-select" disabled>
+                            <option value="">Select City</option>
+                            <!-- Cities will be populated by JavaScript -->
+                        </select>
+                        <div class="select-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ramzan Day Selector -->
+                <div class="day-selector">
+                    <label for="ramzan-day">Ramzan Day:</label>
+                    <div class="day-controls">
+                        <button id="prev-day" class="day-btn" title="Previous Day"><i class="fas fa-chevron-left"></i></button>
+                        <span id="current-day" title="Click to select day">1</span>
+                        <button id="next-day" class="day-btn" title="Next Day"><i class="fas fa-chevron-right"></i></button>
+                        <button id="today-btn" class="day-btn today" title="Go to Today"><i class="fas fa-calendar-day"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Sehri and Iftar Times Display -->
+                <div id="prayer-times" class="prayer-times">
+                    <div class="prayer-time-card sehri">
+                        <div class="prayer-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="prayer-details">
+                            <h4>Sehri</h4>
+                            <p id="sehri-time">-- : -- --</p>
+                        </div>
+                    </div>
+                    <div class="prayer-time-card iftar">
+                        <div class="prayer-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="prayer-details">
+                            <h4>Iftar</h4>
+                            <p id="iftar-time">-- : -- --</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dua-section" aria-live="polite">
+                <h3>Dua for Beginning of Ramzan</h3>
+                <p class="arabic-text">اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالْأَمْنِ وَالْإِيمَانِ، وَالسَّلَامَةِ وَالْإِسْلَامِ، رَبِّي وَرَبُّكَ اللَّهُ</p>
+                <p class="dua-translation">"O Allah, make this month a source of peace, faith, safety, and submission to Your will. My Lord and your Lord is Allah."</p>
+                <!-- Navigation controls and counter will be added by JavaScript -->
+            </div>
+            
+            <div class="countdown">
+                <h3>Time until Iftar</h3>
+                <div id="timer">
+                    <div class="time-unit">
+                        <span id="hours">00</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="minutes">00</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="seconds">00</span>
+                        <span class="label">Seconds</span>
+                    </div>
+                </div>
+                <div class="time-status-container">
+                    <span class="time-status-label">Time Source:</span>
+                    <span id="time-status" class="time-status">Local Time</span>
+                </div>
+                <button id="location-btn" class="location-btn">Set My Location for Accurate Iftar Time</button>
+                <button id="sync-time-btn" class="sync-btn">Sync Time with Server</button>
+            </div>
+            
+            <div class="share-section">
+                <h3>Share this greeting</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>May Allah accept your prayers and fasting</p>
+                <div class="ramzan-dates">
+                    <p>Ramzan 1446 AH (2025)</p>
+                </div>
+                <p class="copyright">© <span id="year"></span> Ramzan Mubarak</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="loading-screen">
+        <div class="loader">
+            <i class="fas fa-moon fa-spin"></i>
+        </div>
+        <p>Loading Ramzan Greetings...</p>
+    </div>
+    
+    <!-- Ramzan Times Database -->
+    <script src="ramzan-times.js"></script>
+    <!-- Windows Time Updater Script -->
+    <script src="time-updater.js"></script>
+    <!-- Ramzan Duas Rotation -->
+    <script src="ramzan-duas.js"></script>
+    <!-- Language Toggle Script -->
+    <script src="language-toggle.js"></script>
+    <!-- Enhanced Script with City Selector -->
+    <script src="enhanced-script.js"></script>
+</body>
+</html> 
